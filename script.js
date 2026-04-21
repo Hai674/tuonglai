@@ -1,60 +1,69 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Tab switching
+document.addEventListener('DOMContentLoaded', () => {
+    // ========== TAB SWITCHING ==========
     const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
+    const tabPanels = document.querySelectorAll('.tab-panel');
 
-    tabBtns.forEach((btn, index) => {
+    tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetTab = btn.dataset.tab;
-            
-            // Update active tab
+
+            // Remove active from all buttons and panels
             tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
-            
+            tabPanels.forEach(p => p.classList.remove('active'));
+
+            // Add active to clicked button and corresponding panel
             btn.classList.add('active');
             document.getElementById(targetTab).classList.add('active');
-            
-            // Progress animation
-            const progress = ((index + 1) / tabBtns.length) * 100;
-            progressFill.style.width = progress + '%';
-            progressText.textContent = Math.round(progress) + '%';
-        });
-    });
 
-    // Auto-scroll smooth
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+            // Smooth scroll to top of content
+            document.getElementById(targetTab).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         });
     });
 
-    // Counter animation
-    function animateProgress() {
-        let width = 0;
-        const target = 75;
-        const interval = setInterval(() => {
-            if (width >= target) {
-                clearInterval(interval);
-            } else {
-                width += 1;
-                progressFill.style.width = width + '%';
-                progressText.textContent = width + '%';
+    // ========== KEYBOARD NAVIGATION ==========
+    tabBtns.forEach((btn, index) => {
+        btn.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextIndex = (index + 1) % tabBtns.length;
+                tabBtns[nextIndex].focus();
+                tabBtns[nextIndex].click();
             }
-        }, 30);
-    }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevIndex = (index - 1 + tabBtns.length) % tabBtns.length;
+                tabBtns[prevIndex].focus();
+                tabBtns[prevIndex].click();
+            }
+        });
+    });
 
-    // Trigger initial animation
-    setTimeout(animateProgress, 1000);
+    // ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-    // Parallax effect
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelector('.container');
-        parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe timeline items
+    document.querySelectorAll('.timeline-item').forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.05}s`;
+        observer.observe(item);
+    });
+
+    // Observe cards
+    document.querySelectorAll('.card').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.08}s`;
+        observer.observe(card);
     });
 });
