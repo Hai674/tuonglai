@@ -588,3 +588,187 @@ p {
         padding: 0.5rem 0.75rem;
     }
    }
+/* ========================================
+   MINDMAP - SƠ ĐỒ TƯ DUY
+======================================= */
+.mindmap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.mindmap-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: var(--success-gradient);
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.mindmap-root i {
+    font-size: 2rem;
+}
+
+.mindmap-branches {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.mindmap-branch {
+    position: relative;
+}
+
+.mindmap-branch::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -1.5rem;
+    width: 4px;
+    height: 1.5rem;
+    background: linear-gradient(to bottom, var(--success-gradient), transparent);
+    transform: translateX(-50%);
+}
+
+.mindmap-branch:first-child::before {
+    display: none;
+}
+
+.branch-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-md);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4facfe;
+    margin-bottom: 1.5rem;
+}
+
+.branch-title i {
+    font-size: 1.5rem;
+}
+
+.branch-nodes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding-left: 2rem;
+}
+
+.node-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.node-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.node-card.highlight {
+    border-color: rgba(79, 172, 254, 0.5);
+    background: rgba(79, 172, 254, 0.08);
+}
+
+.node-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.node-title i {
+    color: #4facfe;
+    font-size: 1.125rem;
+}
+
+.node-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.node-list li {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    padding: 0.375rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.node-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #4facfe;
+}
+
+.node-list li:hover {
+    color: var(--text-primary);
+}
+
+.mindmap-goal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(139, 195, 74, 0.1));
+    border: 2px solid rgba(76, 175, 80, 0.5);
+    border-radius: var(--radius-lg);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #4caf50;
+}
+
+.mindmap-goal i {
+    font-size: 1.5rem;
+}
+
+/* ========================================
+   RESPONSIVE - MINDMAP
+======================================= */
+@media (max-width: 768px) {
+    .mindmap-root {
+        font-size: 1.25rem;
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .mindmap-root i {
+        font-size: 1.5rem;
+    }
+    
+    .branch-nodes {
+        grid-template-columns: 1fr;
+        padding-left: 1rem;
+    }
+    
+    .mindmap-goal {
+        font-size: 1rem;
+        padding: 1.25rem;
+        flex-direction: column;
+        text-align: center;
+    }
+}
