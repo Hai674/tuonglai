@@ -589,65 +589,96 @@ p {
     }
    }
 /* ========================================
-   MINDMAP - SƠ ĐỒ TƯ DUY
+   MINDMAP TREE - SƠ ĐỒ TƯ DUY DẠNG CÂY
 ======================================= */
-.mindmap {
-    max-width: 1000px;
+.mindmap-tree {
+    max-width: 1400px;
     margin: 0 auto;
     padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.mindmap-root {
+/* ROOT NODE */
+.tree-root {
+    margin-bottom: 1rem;
+}
+
+.root-node {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    padding: 1.5rem 2rem;
-    background: var(--success-gradient);
+    padding: 1.5rem 3rem;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
     color: #000;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    border-radius: var(--radius-lg);
-    margin-bottom: 3rem;
-    box-shadow: var(--shadow-md), var(--shadow-glow);
+    border-radius: 50px;
+    box-shadow: 0 0 40px rgba(79, 172, 254, 0.5);
+    animation: pulseGlow 2s ease-in-out infinite;
 }
 
-.mindmap-root i {
+.root-node i {
     font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
 }
 
-.mindmap-branches {
+/* CONNECTING LINES */
+.tree-line {
+    width: 4px;
+    height: 50px;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    border-radius: 2px;
+}
+
+/* BRANCHES CONTAINER */
+.tree-branches {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    width: 100%;
+}
+
+/* BRANCH */
+.tree-branch {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    align-items: center;
+    flex: 1;
+    max-width: 500px;
 }
 
-.mindmap-branch {
-    position: relative;
+.tree-branch.left {
+    align-items: flex-end;
 }
 
-.mindmap-branch::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: -1.5rem;
+.tree-branch.right {
+    align-items: flex-start;
+}
+
+.tree-branch.center {
+    align-items: center;
+}
+
+/* BRANCH LINE */
+.branch-line {
     width: 4px;
-    height: 1.5rem;
-    background: linear-gradient(to bottom, var(--success-gradient), transparent);
-    transform: translateX(-50%);
+    height: 40px;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    border-radius: 2px;
 }
 
-.mindmap-branch:first-child::before {
-    display: none;
-}
-
-.branch-title {
+/* BRANCH LABEL */
+.branch-label {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 1.5rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-hover);
+    background: rgba(79, 172, 254, 0.15);
+    border: 2px solid rgba(79, 172, 254, 0.5);
     border-radius: var(--radius-md);
     font-size: 1.25rem;
     font-weight: 600;
@@ -655,123 +686,156 @@ p {
     margin-bottom: 1.5rem;
 }
 
-.branch-title i {
+.branch-label i {
     font-size: 1.5rem;
 }
 
-.branch-nodes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+/* SUB BRANCHES */
+.sub-branches {
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    padding-left: 2rem;
+    width: 100%;
 }
 
-.node-card {
+.sub-branches.horizontal {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* SUB BRANCH */
+.sub-branch {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 1.5rem;
+    padding: 1rem;
+    width: 100%;
     transition: var(--transition);
 }
 
-.node-card:hover {
+.sub-branch:hover {
     transform: translateY(-5px);
     border-color: var(--border-hover);
     box-shadow: var(--shadow-md), var(--shadow-glow);
 }
 
-.node-card.highlight {
+.sub-branch.highlight {
     border-color: rgba(79, 172, 254, 0.5);
     background: rgba(79, 172, 254, 0.08);
 }
 
-.node-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
+/* SUB LABEL */
+.sub-label {
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-color);
 }
 
-.node-title i {
-    color: #4facfe;
-    font-size: 1.125rem;
-}
-
-.node-list {
-    list-style: none;
+/* SUB ITEMS */
+.sub-items {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.node-list li {
-    font-size: 0.9375rem;
+/* TREE NODE */
+.tree-node {
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    padding: 0.375rem 0;
-    padding-left: 1rem;
-    position: relative;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
 }
 
-.node-list li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #4facfe;
-}
-
-.node-list li:hover {
+.tree-node:hover {
+    background: rgba(79, 172, 254, 0.1);
     color: var(--text-primary);
+    border-left-color: #4facfe;
+    transform: translateX(5px);
 }
 
-.mindmap-goal {
+/* GOAL */
+.tree-goal {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     margin-top: 3rem;
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 2rem;
     background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(139, 195, 74, 0.1));
     border: 2px solid rgba(76, 175, 80, 0.5);
-    border-radius: var(--radius-lg);
-    font-size: 1.125rem;
+    border-radius: 50px;
+    font-size: 1rem;
     font-weight: 600;
     color: #4caf50;
 }
 
-.mindmap-goal i {
+.tree-goal i {
     font-size: 1.5rem;
+    animation: pulse 1.5s ease infinite;
 }
 
 /* ========================================
-   RESPONSIVE - MINDMAP
+   RESPONSIVE - MINDMAP TREE
 ======================================= */
-@media (max-width: 768px) {
-    .mindmap-root {
-        font-size: 1.25rem;
-        padding: 1.25rem 1.5rem;
+@media (max-width: 1024px) {
+    .tree-branches {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
     }
     
-    .mindmap-root i {
+    .tree-branch.left,
+    .tree-branch.right {
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .root-node {
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .root-node i {
         font-size: 1.5rem;
     }
     
-    .branch-nodes {
-        grid-template-columns: 1fr;
-        padding-left: 1rem;
+    .branch-label {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
     }
     
-    .mindmap-goal {
-        font-size: 1rem;
-        padding: 1.25rem;
+    .sub-branches.horizontal {
+        flex-direction: column;
+    }
+    
+    .tree-goal {
+        font-size: 0.875rem;
+        padding: 1rem 1.5rem;
         flex-direction: column;
         text-align: center;
     }
 }
+
+@media (max-width: 480px) {
+    .root-node {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        flex-direction: column;
+    }
+    
+    .tree-node {
+        font-size: 0.8125rem;
+    }
+   }
 /* ========================================
    ANIMATIONS - HIỆU ỨNG SINH ĐỘNG
 ======================================= */
