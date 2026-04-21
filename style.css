@@ -9,10 +9,11 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     color: #333;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -21,57 +22,256 @@ header {
     text-align: center;
     color: white;
     margin-bottom: 40px;
+    animation: slideDown 1s ease;
 }
 
 header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+}
+
+header p {
+    font-size: 1.3em;
+    opacity: 0.9;
 }
 
 .progress-timeline {
-    margin: 30px 0;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.progress-label {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .progress-bar {
-    height: 10px;
+    width: 80%;
+    max-width: 500px;
+    height: 15px;
     background: rgba(255,255,255,0.3);
-    border-radius: 5px;
+    border-radius: 10px;
     overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    background: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39);
     width: 0%;
-    transition: width 0.5s ease;
+    border-radius: 10px;
+    transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
 }
 
 .tabs {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 40px;
+    gap: 15px;
+    margin-bottom: 50px;
     flex-wrap: wrap;
 }
 
 .tab-btn {
-    padding: 15px 30px;
+    padding: 18px 35px;
     border: none;
     background: rgba(255,255,255,0.2);
     color: white;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(15px);
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 .tab-btn:hover, .tab-btn.active {
-    background: white;
+    background: linear-gradient(45deg, #fff, #f0f0f0);
     color: #667eea;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
+
+.tab-content {
+    display: none;
+    animation: fadeInUp 0.6s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.timeline-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    color: white;
+    margin-right: 25px;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.yellow { background: linear-gradient(45deg, #FFC107, #FF9800); }
+.green { background: linear-gradient(45deg, #4CAF50, #8BC34A); }
+.blue { background: linear-gradient(45deg, #2196F3, #21CBF3); }
+
+.timeline-content h3 {
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+}
+
+.timeline-content p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.services-grid, .life-goals-grid, .business-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.service-card, .goal-card, .business-item, .milestone-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    border-top: 5px solid #667eea;
+}
+
+.service-card:hover, .goal-card:hover, .business-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+
+.premium { border-top-color: #4CAF50 !important; }
+.family { border-top-color: #FF9800 !important; }
+
+.service-card h4, .goal-card h4 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.service-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.service-card li {
+    padding: 8px 0;
+    color: #555;
+}
+
+.service-card li i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.family-business, .future-goal, .life-philosophy {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 0;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.life-philosophy {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.life-philosophy h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.goal-list, .business-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.goal-list div {
+    background: #f8f9fa;
+    padding: 15px 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    border-left: 5px solid #4CAF50;
+}
+
+.goal-list i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 30px;
+    color: white;
+    font-size: 1.4em;
+    background: rgba(0,0,0,0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.5em; }
+    .tabs { flex-direction: column; align-items: center; }
+    .timeline-item { flex-direction: column; text-align: center; }
+    .timeline-icon { margin-right: 0; margin-bottom: 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    }}
 
 .tab-content {
     display: none;
