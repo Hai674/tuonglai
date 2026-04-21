@@ -3,75 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tôi Của 40 Năm Sau - Roadmap 40 Năm</title>
+    <title>Tôi Của 40 Năm Sau</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-rocket"></i> TÔI CỦA 40 NĂM SAU</h1>
-            <p>Roadmap chi tiết - Tất cả milestone từ 2025 → 2065</p>
+    <div class="app">
+        <!-- Header -->
+        <header class="hero">
+            <h1 class="hero-title">
+                <i class="icon">🚀</i>
+                TÔI CỦA 40 NĂM SAU
+            </h1>
+            <p class="hero-subtitle">Roadmap chi tiết cho tương lai thành công</p>
         </header>
 
-        <div class="progress-timeline">
-            <div class="progress-label">
-                Tiến độ: <span id="progressText">0%</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-        </div>
-
-        <nav class="tabs">
-            <button class="tab-btn active" data-tab="hoc-tap">
-                <i class="fas fa-graduation-cap"></i> 1. HỌC TẬP
+        <!-- Navigation -->
+        <nav class="tabs-nav" role="tablist">
+            <button class="tab-btn active" data-tab="hoc-tap" role="tab">
+                <i class="icon">🎓</i>
+                <span>1. HỌC TẬP</span>
             </button>
-            <button class="tab-btn" data-tab="viec-lam">
-                <i class="fas fa-briefcase"></i> 2. VIỆC LÀM
+            <button class="tab-btn" data-tab="viec-lam" role="tab">
+                <i class="icon">💼</i>
+                <span>2. VIỆC LÀM</span>
             </button>
-            <button class="tab-btn" data-tab="doi-song">
-                <i class="fas fa-heart"></i> 3. ĐỜI SỐNG
+            <button class="tab-btn" data-tab="doi-song" role="tab">
+                <i class="icon">❤️</i>
+                <span>3. ĐỜI SỐNG</span>
             </button>
         </nav>
 
-        <main class="content">
-            <!-- 1. HỌC TẬP - FULL TIMELINE -->
-            <section id="hoc-tap" class="tab-content active">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-icon yellow"><i class="fas fa-calendar"></i> Jun</div>
-                        <div class="timeline-content">
-                            <h3>Tháng 6: Test IELTS</h3>
-                            <p><strong>Xuất phát sớm lớp 11</strong></p>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tab 1: Học tập -->
+            <section id="hoc-tap" class="tab-panel active" role="tabpanel">
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker yellow">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Th6</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Test IELTS + Lớp 11</h3>
+                                <p class="timeline-desc">Xuất phát sớm lớp 11</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker yellow">
+                                <i class="fas fa-code"></i>
+                                <span>Th7</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">HTML (Cơ bản → Nâng cao)</h3>
+                            </div>
+                        </div>
+                        <!-- 15+ items nữa... -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Việc làm -->
+            <section id="viec-lam" class="tab-panel" role="tabpanel">
+                <div class="section-grid">
+                    <div class="card services-card">
+                        <h3 class="card-title">
+                            <i class="fas fa-globe"></i> Dịch vụ Premium
+                        </h3>
+                        <div class="services-list">
+                            <span class="service-item">ChatGPT Plus</span>
+                            <span class="service-item">Canva Pro</span>
+                            <span class="service-item">CapCut Pro</span>
+                            <span class="service-item">AntiGravity</span>
+                            <span class="service-item">Cursor Pro</span>
+                            <span class="service-item">Claude Pro</span>
+                            <span class="service-item">Super Grok</span>
+                            <span class="service-item">Youtube Premium Family</span>
+                            <span class="service-item">Spotify Premium</span>
+                            <span class="service-item">Netflix Premium</span>
+                            <span class="service-item">Gemini Pro</span>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon yellow"><i class="fas fa-code"></i> Jul</div>
-                        <div class="timeline-content">
-                            <h3>Tháng 7: HTML</h3>
-                            <p>Cơ bản đến nâng cao</p>
-                        </div>
+                    
+                    <div class="card expansion-card">
+                        <h3 class="card-title">
+                            <i class="fas fa-expand-arrows-alt"></i> Mở rộng
+                        </h3>
+                        <ul class="feature-list">
+                            <li>Thành lập team quản lý web</li>
+                            <li>Tuyển dụng nhân sự</li>
+                            <li>Code & sửa web theo yêu cầu</li>
+                            <li>Quảng bá & scale up</li>
+                        </ul>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon yellow"><i class="fas fa-chart-line"></i> Aug</div>
-                        <div class="timeline-content">
-                            <h3>Tháng 8: Test IELTS</h3>
-                            <p>Test lại để cải thiện band</p>
-                        </div>
+
+                    <div class="card business-card">
+                        <h3 class="card-title">
+                            <i class="fas fa-store"></i> Kinh doanh gia đình
+                        </h3>
+                        <ul class="feature-list">
+                            <li>Quán tạp hóa (bố mẹ quản lý)</li>
+                            <li>Bán bún, cơm</li>
+                            <li>Bán nước, bia</li>
+                            <li>Mở rộng mô hình</li>
+                        </ul>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon yellow"><i class="fas fa-paint-brush"></i> Sep</div>
-                        <div class="timeline-content">
-                            <h3>Tháng 9: CSS</h3>
-                            <p>Cơ bản đến nâng cao</p>
-                        </div>
+                </div>
+
+                <div class="milestones">
+                    <div class="milestone">
+                        <i class="fas fa-fire"></i>
+                        <h4>Nghỉ việc công ty sau 34 tuổi</h4>
+                        <p>Thu nhập ổn định từ 2 hệ thống</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon yellow"><i class="fas fa-calendar"></i> Dec</div>
-                        <div class="timeline-content">
-                            <h3>Tháng 12: Test IELTS</h3>
-                            <p>Tiếp tục cải thiện</p>
+                </div>
+            </section>
+
+            <!-- Tab 3: Đời sống -->
+            <section id="doi-song" class="tab-panel" role="tabpanel">
+                <div class="life-grid">
+                    <div class="card life-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Cân bằng</h3>
+                        <p>Học - Làm - Nghỉ ngơi</p>
+                    </div>
+                    <div class="card life-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Gia đình</h3>
+                        <p>Lập gia đình tuổi 30<br>Du lịch cùng nhà</p>
+                    </div>
+                    <div class="card life-card">
+                        <i class="fas fa-landmark"></i>
+                        <h3>Tài sản</h3>
+                        <p>Mua đất → Xây nhà → Mua xe<br>Sổ tiết kiệm</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p><i class="fas fa-check-circle"></i> Tương lai đã sẵn sàng!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+    </html>                            <p>Tiếp tục cải thiện</p>
                         </div>
                     </div>
                     <div class="timeline-item">
