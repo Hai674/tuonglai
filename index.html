@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tôi Của 40 Năm Sau - Roadmap Cuộc Đời</title>
+    <title>Tôi Của 40 Năm Sau</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
             <h1><i class="fas fa-rocket"></i> TÔI CỦA 40 NĂM SAU</h1>
-            <p>Roadmap chi tiết cho tương lai thành công</p>
+            <p><strong>Roadmap 40 năm - Thành công đã được định sẵn!</strong></p>
         </header>
 
         <div class="progress-timeline">
+            <div class="progress-label">Tiến độ: <span id="progressText">0%</span></div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
@@ -22,56 +23,106 @@
 
         <nav class="tabs">
             <button class="tab-btn active" data-tab="hoc-tap">
-                <i class="fas fa-graduation-cap"></i> HỌC TẬP
+                <i class="fas fa-graduation-cap"></i> 1. HỌC TẬP
             </button>
             <button class="tab-btn" data-tab="viec-lam">
-                <i class="fas fa-briefcase"></i> VIỆC LÀM
+                <i class="fas fa-briefcase"></i> 2. VIỆC LÀM
             </button>
             <button class="tab-btn" data-tab="doi-song">
-                <i class="fas fa-heart"></i> ĐỜI SỐNG
+                <i class="fas fa-heart"></i> 3. ĐỜI SỐNG
             </button>
         </nav>
 
         <main class="content">
-            <!-- Tab 1: HỌC TẬP -->
+            <!-- HỌC TẬP -->
             <section id="hoc-tap" class="tab-content active">
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-icon yellow"><i class="fas fa-calendar"></i></div>
                         <div class="timeline-content">
-                            <h3>Tháng 6: Test IELTS + Lớp 11</h3>
-                            <p>Xuất phát sớm lớp 11</p>
+                            <h3>Tháng 6/2025</h3>
+                            <p><strong>Test IELTS + Xuất phát sớm lớp 11</strong></p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-icon yellow"><i class="fas fa-code"></i></div>
                         <div class="timeline-content">
-                            <h3>Tháng 7: HTML</h3>
-                            <p>Cơ bản → Nâng cao</p>
+                            <h3>Tháng 7/2025</h3>
+                            <p>HTML <strong>(cơ bản → nâng cao)</strong></p>
                         </div>
                     </div>
-                    <!-- Thêm các milestone khác tương tự -->
+                    <div class="timeline-item">
+                        <div class="timeline-icon yellow"><i class="fas fa-chart-line"></i></div>
+                        <div class="timeline-content">
+                            <h3>Tháng 8/2025</h3>
+                            <p>Test IELTS lần 2</p>
+                        </div>
+                    </div>
+                    <!-- Thêm đầy đủ timeline... -->
                 </div>
             </section>
 
-            <!-- Tab 2: VIỆC LÀM -->
+            <!-- VIỆC LÀM -->
             <section id="viec-lam" class="tab-content">
                 <div class="services-grid">
-                    <div class="service-card">
-                        <h4>Website Kiếm Tiền</h4>
+                    <div class="service-card premium">
+                        <h4><i class="fas fa-globe"></i> Website Kiếm Tiền</h4>
                         <ul>
-                            <li>ChatGPT Plus</li>
-                            <li>Canva Pro</li>
-                            <li>Cursor Pro</li>
-                            <!-- ... -->
+                            <li>✅ ChatGPT Plus</li>
+                            <li>✅ Canva Pro</li>
+                            <li>✅ CapCut Pro</li>
+                            <li>✅ AntiGravity</li>
+                            <li>✅ Cursor Pro</li>
+                            <li>✅ Claude Pro</li>
+                            <li>✅ Super Grok</li>
+                            <li>✅ Youtube Premium Family</li>
+                            <li>✅ Spotify Premium</li>
+                            <li>✅ Netflix Premium</li>
+                            <li>✅ Gemini Pro</li>
                         </ul>
                     </div>
                     <div class="service-card">
-                        <h4>Team & Mở rộng</h4>
-                        <p>Thành lập team, tuyển nhân sự</p>
+                        <h4><i class="fas fa-users"></i> Team & Mở rộng</h4>
+                        <p>Thành lập team → Tuyển nhân sự → Code/Sửa web theo yêu cầu</p>
+                    </div>
+                    <div class="service-card family">
+                        <h4><i class="fas fa-store"></i> Kinh doanh gia đình</h4>
+                        <p>Quán tạp hóa → Bán bún cơm → Bán nước bia</p>
                     </div>
                 </div>
             </section>
+
+            <!-- ĐỜI SỐNG -->
+            <section id="doi-song" class="tab-content">
+                <div class="life-goals">
+                    <div class="goal-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h4>Cân bằng</h4>
+                        <p>Học - Làm - Nghỉ ngơi</p>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Gia đình</h4>
+                        <p>Lập gia đình tuổi 30<br>Du lịch cùng gia đình</p>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-landmark"></i>
+                        <h4>Tài sản</h4>
+                        <p>Mua đất → Xây nhà → Mua xe → Sổ tiết kiệm</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p><i class="fas fa-check-circle"></i> <strong>Tương lai 40 năm!</strong></p>
+            <small>Được làm bởi Haibdos</small>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+            </html>            </section>
 
             <!-- Tab 3: ĐỜI SỐNG -->
             <section id="doi-song" class="tab-content">
